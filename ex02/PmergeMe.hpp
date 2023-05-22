@@ -1,7 +1,6 @@
 #ifndef PMERGEME_HPP_
 #define PMERGEME_HPP_
 
-#include <utility>
 #include <vector>
 #include <deque>
 #include <iostream>

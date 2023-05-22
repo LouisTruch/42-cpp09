@@ -1,10 +1,7 @@
 #include "PmergeMe.hpp"
-#include <stdexcept>
-#include <string>
 #include <climits>
 #include <cstdlib>
 #include <cerrno>
-#include <iostream>
 
 #define DECIMAL_BASE 10
 
@@ -27,7 +24,6 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 	if (&other == this)
 		return *this;
 	_vector = other._vector;
-	_deque = other._deque;
 	return *this;
 }
 

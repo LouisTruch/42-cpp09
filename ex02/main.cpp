@@ -1,7 +1,6 @@
 #include "PmergeMe.hpp"
 #include <cstdlib>
 #include <iostream>
-#include <ctime>
 
 void printAndLaunchSorting(PmergeMe& pmerge, const std::string& containerType, int nbElements)
 {
