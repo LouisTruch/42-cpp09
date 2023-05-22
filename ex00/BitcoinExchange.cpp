@@ -49,7 +49,7 @@ void BitcoinExchange::parseDataFile(void)
 	size_t commaNb, commaPos;
 	struct tm tm;
 	std::string date, exchangeRate;
-	double btcValue;
+	double btcValue = -1;
 	char *endptr;
 	while (getline(dataFile, buffer)) {
 		commaNb = count(buffer.begin(), buffer.end(), ',');
@@ -68,6 +68,8 @@ void BitcoinExchange::parseDataFile(void)
 			throw std::invalid_argument("Error: in data.csv : BTC value can't be negative");
 		_btcValues.insert(std::make_pair(date, btcValue));
 	}
+	if (btcValue == -1)
+			throw std::invalid_argument("Error: in data.csv : Need at least one value in data");
 	// printMap(_btcValues);
 	dataFile.close();
 }
