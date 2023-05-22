@@ -1,7 +1,6 @@
 #include "BitcoinExchange.hpp"
 #include <cstdlib>
 #include <iostream>
-#include <stdexcept>
 
 int main(int ac, char **av)
 {
@@ -17,5 +16,5 @@ int main(int ac, char **av)
     return EXIT_FAILURE;
   }
   BitcoinExchange.readInputFile(av[1]);
-  (void)av;
+  return EXIT_SUCCESS;
 }

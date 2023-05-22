@@ -1,7 +1,6 @@
 #include "RPN.hpp"
 #include <cstdlib>
 #include <iostream>
-#include <stack>
 
 int main(int ac, char *av[])
 {

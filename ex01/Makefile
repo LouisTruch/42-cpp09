@@ -2,9 +2,6 @@ NAME	= RPN
 
 SRCS = RPN.cpp \
 main.cpp \
-utils.cpp \
-
-HEADER = RPN.hpp
 
 OBJS	=	${SRCS:.cpp=.o}
 
@@ -17,7 +14,7 @@ RM			= 	rm -f
 
 all		:	${NAME}
 
-${NAME}	:	${OBJS} ${HEADER}
+${NAME}	:	${OBJS}
 			${CXX} ${CXXFLAGS} -o ${NAME} ${OBJS}
 
 clean	:	

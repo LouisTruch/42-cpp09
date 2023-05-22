@@ -80,3 +80,9 @@ void RPN::computeOperator(int operation)
 	}
 }
 
+bool RPN::isoperator(int c) const
+{
+  if (c == '+' || c == '-' || c == '*' || c == '/')
+    return true;
+  return false;
+}

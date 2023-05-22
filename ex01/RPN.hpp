@@ -12,12 +12,13 @@ class RPN {
 	 RPN& operator=(const RPN& other);
 
 	 void RPNisation(const std::string&);
-	 void computeOperator(int);
 
 	private:
 	 std::stack<double> _stack;
- } ;
 
-bool isoperator(int c);
+	private:
+	 void computeOperator(int);
+	 bool isoperator(int) const;
+ } ;
 
 #endif // RPN_HPP_

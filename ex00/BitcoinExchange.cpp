@@ -1,10 +1,6 @@
 #include "BitcoinExchange.hpp"
-#include <cctype>
-#include <cstdlib>
 #include <fstream>
-#include <stdexcept>
 #include <algorithm>
-#include <ctime>
 #include <iostream>
 
 BitcoinExchange::BitcoinExchange()
