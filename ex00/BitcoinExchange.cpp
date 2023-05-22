@@ -133,8 +133,7 @@ void BitcoinExchange::printLine(std::string& buffer, std::string& date, float bt
 		default:
 			std::map<std::string, double>::const_iterator it;
 			it = _btcValues.lower_bound(date);
-			if (it == _btcValues.end())
-				it--;
+			it--;
 			std::cout << date << " => " << btcNb << " = " << it->second * btcNb <<'\n';
 	}
 }
