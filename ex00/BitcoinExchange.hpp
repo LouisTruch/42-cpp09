@@ -13,13 +13,13 @@ class BitcoinExchange {
 
 	 void parseDataFile(void);
 	 void readInputFile(std::string input) const;
-	 void printLine(std::string buffer, std::string date, float btcNb, int error) const;
-	 static bool isValidDate(std::string);
+	 void printLine(std::string& buffer, std::string& date, float btcNb, int error) const;
+	 bool isValidDate(std::string&) const;
 
 	 typedef enum e_error {NO_ERROR, BAD_INPUT, TOOLARGE_NB, NEGATIVE_NB} t_error;
 
 	private:
-	 std::map<std::string, double> _map;
+	 std::map<std::string, double> _btcValues;
  } ;
 
 #endif // BITCOINEXCHANGE_HPP_

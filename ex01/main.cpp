@@ -14,6 +14,7 @@ int main(int ac, char *av[])
     rpn.RPNisation(av[1]);
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
+    return EXIT_FAILURE;
   }
   return EXIT_SUCCESS;
 }

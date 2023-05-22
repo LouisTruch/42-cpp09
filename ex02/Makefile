@@ -1,7 +1,9 @@
-NAME	= btc	
+NAME	= PmergeMe	
 
-SRCS = BitcoinExchange.cpp \
+SRCS = PmergeMe.cpp \
 main.cpp \
+
+HEADER = PmergeMe.hpp
 
 OBJS	=	${SRCS:.cpp=.o}
 
@@ -14,7 +16,7 @@ RM			= 	rm -f
 
 all		:	${NAME}
 
-${NAME}	:	${OBJS}
+${NAME}	:	${OBJS} ${HEADER}
 			${CXX} ${CXXFLAGS} -o ${NAME} ${OBJS}
 
 clean	:	
