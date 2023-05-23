@@ -41,7 +41,7 @@ void BitcoinExchange::parseDataFile(void)
 	std::string buffer;
 	getline(dataFile, buffer);
 	if (buffer != "date,exchange_rate")
-		throw std::invalid_argument("Error: in data.csv: Formatting is incorrect");
+		throw std::invalid_argument("Error: in data.csv: Format is incorrect");
 	size_t commaNb, commaPos;
 	struct tm tm;
 	std::string date, exchangeRate;
@@ -50,16 +50,18 @@ void BitcoinExchange::parseDataFile(void)
 	while (getline(dataFile, buffer)) {
 		commaNb = count(buffer.begin(), buffer.end(), ',');
 		if (commaNb != 1) 
-			throw std::invalid_argument("Error: in data.csv: Formatting is incorrect");
+			throw std::invalid_argument("Error: in data.csv: Format is incorrect");
 		commaPos = buffer.find(',');
 		date = buffer.substr(0, commaPos);
 		if (!strptime(date.c_str(), "%Y-%m-%d", &tm) || date.size() != 10 ||!isValidDate(date))
-			throw std::invalid_argument("Error: in data.csv: Formatting is incorrect");
+			throw std::invalid_argument("Error: in data.csv: Format is incorrect");
 		exchangeRate = buffer.substr(commaPos + 1, buffer.size() - commaPos - 1);
+		if (exchangeRate.empty())
+			throw std::invalid_argument("Error: in data.csv: Format is incorrect");
 		errno = 0;
 		btcValue = strtod(exchangeRate.c_str(), &endptr);
 		if (errno == ERANGE || endptr[0] != '\0')
-			throw std::invalid_argument("Error: in data.csv: Formatting is incorrect");
+			throw std::invalid_argument("Error: in data.csv: Format is incorrect");
 		if (btcValue < 0)
 			throw std::invalid_argument("Error: in data.csv : BTC value can't be negative");
 		_btcValues.insert(std::make_pair(date, btcValue));
